@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://0ohigcdn23f3"
+path="res://.godot/imported/4 - C.wav-770e32aa6b91e4154a5c1bb0d31a4731.sample"
+
+[deps]
+
+source_file="res://examples/basic/sounds/plucky/4 - C.wav"
+dest_files=["res://.godot/imported/4 - C.wav-770e32aa6b91e4154a5c1bb0d31a4731.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

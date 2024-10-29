@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://b5mrqvx6cjb4m"]
+
+[ext_resource type="PackedScene" uid="uid://df066dxy6tykm" path="res://src/AmbitrackManager.tscn" id="1_383i8"]
+[ext_resource type="PackedScene" uid="uid://ds5afemiaowri" path="res://examples/basic/ExampleTree.tscn" id="2_6iseu"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="Camera3D" type="Camera3D" parent="."]
+
+[node name="AmbitrackManager" parent="." instance=ExtResource("1_383i8")]
+
+[node name="ExampleTree" parent="." instance=ExtResource("2_6iseu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.805238, 0, 0)
+
+[node name="ExampleTree2" parent="." instance=ExtResource("2_6iseu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.15478, 0, 0)

@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://ds5afemiaowri"]
+
+[ext_resource type="Script" path="res://src/AmbitrackVoice.gd" id="1_lntrw"]
+[ext_resource type="Script" path="res://examples/basic/ExampleTree.gd" id="1_tpjd7"]
+
+[node name="ExampleTree" type="Node3D"]
+script = ExtResource("1_tpjd7")
+
+[node name="AmbitrackVoice" type="Node" parent="."]
+script = ExtResource("1_lntrw")
+
+[node name="AmbitrackAudioPlayer" type="AudioStreamPlayer3D" parent="."]

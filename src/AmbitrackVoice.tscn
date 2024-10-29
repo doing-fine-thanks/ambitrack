@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dmenuhqfwl1pw"]
+
+[ext_resource type="Script" path="res://src/AmbitrackVoice.gd" id="1_0dklu"]
+
+[node name="AmbitrackVoice" type="Node"]
+script = ExtResource("1_0dklu")

@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://df066dxy6tykm"]
+
+[ext_resource type="Script" path="res://src/AmbitrackManager.gd" id="1_vd3sp"]
+
+[node name="AmbitrackManager" type="Node"]
+script = ExtResource("1_vd3sp")
+
+[node name="DebugText" type="RichTextLabel" parent="."]
+offset_right = 107.0
+offset_bottom = 66.0
