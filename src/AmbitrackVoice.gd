@@ -55,12 +55,12 @@ func change_sample(new_voice_parts_manifest: AmbitrackCommon.VoicePartManifest, 
     voice_meta.current_note = note
     voice_meta.current_played_duration = 0
     
-    print("last note changed to: " +  voice_meta.last_note)
-    print("current note changed to: " +  voice_meta.current_note)
+    #print("last note changed to: " +  voice_meta.last_note)
+    #print("current note changed to: " +  voice_meta.current_note)
 
     _current_voice_parts_manifest = new_voice_parts_manifest
 
-    if _current_voice_parts_manifest.audio_stream != null:
+    if _current_voice_parts_manifest != null and _current_voice_parts_manifest.audio_stream != null:
         audio_player.stream = _current_voice_parts_manifest.audio_stream
         # audio_player.play(_current_voice_parts_manifest.beginning_timestamp)
         # todo: blend the fade_out of the old track with the new

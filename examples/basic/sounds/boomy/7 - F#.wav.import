@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://mwnb7or5q71f"
+path="res://.godot/imported/7 - F#.wav-d5f8c29a6d2172bd5a1b3107124c2f65.sample"
+
+[deps]
+
+source_file="res://examples/basic/sounds/boomy/7 - F#.wav"
+dest_files=["res://.godot/imported/7 - F#.wav-d5f8c29a6d2172bd5a1b3107124c2f65.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

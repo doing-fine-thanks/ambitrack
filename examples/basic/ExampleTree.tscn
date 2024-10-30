@@ -1,7 +1,16 @@
-[gd_scene load_steps=3 format=3 uid="uid://ds5afemiaowri"]
+[gd_scene load_steps=10 format=3 uid="uid://ds5afemiaowri"]
 
 [ext_resource type="Script" path="res://src/AmbitrackVoice.gd" id="1_lntrw"]
 [ext_resource type="Script" path="res://examples/basic/ExampleTree.gd" id="1_tpjd7"]
+[ext_resource type="Texture2D" uid="uid://brq7fndywvrj2" path="res://examples/basic/sprites/trees/Tree.png" id="3_anijp"]
+[ext_resource type="Texture2D" uid="uid://dc807e52ayy62" path="res://examples/basic/sprites/trees/Tree 2.png" id="4_6je7k"]
+[ext_resource type="Texture2D" uid="uid://bwd4454y1pjfa" path="res://examples/basic/sprites/trees/Tree 3.png" id="5_nxkkj"]
+[ext_resource type="Texture2D" uid="uid://b4lhc44oxi2k6" path="res://examples/basic/sprites/trees/Tree 2 Dead.png" id="6_rgedt"]
+[ext_resource type="Texture2D" uid="uid://g20hbsuxq8l" path="res://examples/basic/sprites/trees/Tree Dead.png" id="7_6gy88"]
+[ext_resource type="Texture2D" uid="uid://da6utmn37a3kd" path="res://examples/basic/sprites/trees/Tree 3 Dead.png" id="8_g72lq"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_3iiyk"]
+radius = 0.594651
 
 [node name="ExampleTree" type="Node3D"]
 script = ExtResource("1_tpjd7")
@@ -10,3 +19,50 @@ script = ExtResource("1_tpjd7")
 script = ExtResource("1_lntrw")
 
 [node name="AmbitrackAudioPlayer" type="AudioStreamPlayer3D" parent="."]
+
+[node name="Sprites" type="Node3D" parent="."]
+
+[node name="Sprite3D" type="Sprite3D" parent="Sprites"]
+visible = false
+billboard = 2
+double_sided = false
+texture_filter = 0
+texture = ExtResource("3_anijp")
+
+[node name="Sprite3D2" type="Sprite3D" parent="Sprites"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.00601315, 0)
+visible = false
+billboard = 2
+texture_filter = 0
+texture = ExtResource("4_6je7k")
+
+[node name="Sprite3D3" type="Sprite3D" parent="Sprites"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.00601315, 0)
+visible = false
+billboard = 2
+texture_filter = 0
+texture = ExtResource("5_nxkkj")
+
+[node name="Sprite3D4" type="Sprite3D" parent="Sprites"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0360048, 0)
+billboard = 2
+texture_filter = 0
+texture = ExtResource("6_rgedt")
+
+[node name="Sprite3D6" type="Sprite3D" parent="Sprites"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0360048, 0)
+billboard = 2
+texture_filter = 0
+texture = ExtResource("7_6gy88")
+
+[node name="Sprite3D5" type="Sprite3D" parent="Sprites"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0360048, 0)
+billboard = 2
+texture_filter = 0
+texture = ExtResource("8_g72lq")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(0.442719, 0, 0, 0, 0.442719, 0, 0, 0, 0.442719, 0, 0, 0)
+shape = SubResource("CylinderShape3D_3iiyk")

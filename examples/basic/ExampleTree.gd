@@ -3,6 +3,10 @@ class_name ExampleTree extends Node3D
 @onready var ambitrack_voice: AmbitrackVoice = $AmbitrackVoice
 @onready var ambitrack_audio_stream_player: AudioStreamPlayer3D = $AmbitrackAudioPlayer
 
+@export var distance_to_sound_threshold: int = 1
+
+var player_reference: Player
+
 var g_note := AmbitrackCommon.VoicePartManifest.new();
 var a_note := AmbitrackCommon.VoicePartManifest.new();
 var b_note := AmbitrackCommon.VoicePartManifest.new();
@@ -24,6 +28,22 @@ func _ready():
     e_note.audio_stream = preload("res://examples/basic/sounds/plucky/6 - E.wav")
     fs_note.audio_stream = preload("res://examples/basic/sounds/plucky/7 - F#.wav")
     g2_note.audio_stream = preload("res://examples/basic/sounds/plucky/8 - G2.wav")
+    
+    for tree_sprite in $Sprites.get_children():
+        tree_sprite.visible = false
+    $Sprites.get_children().pick_random().visible = true
+    var size_offset: float =  randf_range(0.8, 1.2)
+    scale *= size_offset
+    if size_offset < 1:
+        position.y *= 0.95
+    else:
+        position.y *= 1.2
+        
+        
+    player_reference = get_tree().get_first_node_in_group(Player.PLAYER_GROUP) as Player
+        
+    
+        
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
@@ -32,8 +52,11 @@ func _process(_delta):
 
 func process_audio(beat: int, voices: Array[AmbitrackCommon.VoiceMetadata]):
     print("got beat " + str(beat) + " @ " + str(get_path()))
-    
-    if voices[0] == ambitrack_voice.voice_meta:
+    print(player_reference.global_position.distance_to(global_position))
+    if player_reference.global_position.distance_to(global_position) > distance_to_sound_threshold:
+        ambitrack_voice.change_sample(null, "null")
+        print("skipping...")
+    elif voices[0] == ambitrack_voice.voice_meta:
         if beat % 6 == 0:
             ambitrack_voice.change_sample(fs_note, "F#")
         elif ambitrack_voice.voice_meta.current_note == "G":
@@ -55,5 +78,5 @@ func process_audio(beat: int, voices: Array[AmbitrackCommon.VoiceMetadata]):
     #else:
     #    ambitrack_voice.change_sample(a_note, "A")
 
-    print(ambitrack_voice.voice_meta.current_note)
+    #print(ambitrack_voice.voice_meta.current_note)
     return ambitrack_voice.voice_meta
