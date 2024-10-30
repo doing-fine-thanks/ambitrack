@@ -64,7 +64,11 @@ func change_sample(new_voice_parts_manifest: AmbitrackCommon.VoicePartManifest, 
         audio_player.stream = _current_voice_parts_manifest.audio_stream
         # audio_player.play(_current_voice_parts_manifest.beginning_timestamp)
         # todo: blend the fade_out of the old track with the new
-        audio_player.play()
+        
+        var request := AmbitrackCommon.PlayRequest.new()
+        request.priority = 1
+        request.audio_player = audio_player
+        _manager.add_play_to_queue(request)
 
         voice_meta.current_sample_name = audio_player.stream.resource_name
     else:

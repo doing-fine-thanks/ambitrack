@@ -6,7 +6,7 @@ class_name AmbitrackManager extends Node
 @onready var debug_text: RichTextLabel = $DebugText
 
 @export var bpm: int = 120
-@export var number_of_voices: int = 4
+@export var max_number_of_voices: int = 8
 @export var is_audio_positional: bool = false
 
 # maybe not needed?
@@ -17,6 +17,8 @@ class_name AmbitrackManager extends Node
 
 var voice_map: Array[AmbitrackCommon.VoiceMetadata] = []
 var voices: Array[AmbitrackVoice] = []
+
+var voice_play_requests: Array[AmbitrackCommon.PlayRequest] = []
 
 var _interal_tick_duration: float = 0
 var _duration_since_last_tick: float = 0
@@ -49,6 +51,8 @@ func _physics_process(delta):
         _beat += 1
             
         voice_map = new_voice_map
+        
+        process_voice_play_queue()
             
     else:
         _duration_since_last_tick += delta
@@ -56,6 +60,16 @@ func _physics_process(delta):
     if DEBUG:
         debug_text.text = "Current beat: " + str(_beat)
 
+func add_play_to_queue(request: AmbitrackCommon.PlayRequest):
+    voice_play_requests.append(request)
+    
+func process_voice_play_queue():
+    voice_play_requests.sort_custom(func(a: AmbitrackCommon.PlayRequest, b: AmbitrackCommon.PlayRequest): return a.priority > b.priority)
+    for i in range(min(max_number_of_voices, voice_play_requests.size())):
+        voice_play_requests[i].audio_player.play()
+    
+    voice_play_requests.clear()
+    
 
 func register_voice(voice: AmbitrackVoice):
     voices.append(voice)

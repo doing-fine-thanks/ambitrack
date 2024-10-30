@@ -26,3 +26,7 @@ class VoicePartManifest:
    # var end_time_stamp:float
     
     var audio_stream: AudioStream;
+    
+class PlayRequest:
+    var priority: int
+    var audio_player: AudioStreamPlayer3D

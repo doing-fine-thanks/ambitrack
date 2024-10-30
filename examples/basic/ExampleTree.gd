@@ -3,7 +3,7 @@ class_name ExampleTree extends Node3D
 @onready var ambitrack_voice: AmbitrackVoice = $AmbitrackVoice
 @onready var ambitrack_audio_stream_player: AudioStreamPlayer3D = $AmbitrackAudioPlayer
 
-@export var distance_to_sound_threshold: int = 1
+@export var distance_to_sound_threshold: int = 4
 
 var player_reference: Player
 
@@ -20,14 +20,14 @@ var g2_note := AmbitrackCommon.VoicePartManifest.new();
 func _ready():
     ambitrack_voice.setup(process_audio, ambitrack_audio_stream_player)
     
-    g_note.audio_stream = preload("res://examples/basic/sounds/plucky/1 - G.wav")
-    a_note.audio_stream = preload("res://examples/basic/sounds/plucky/2 - A.wav")
-    b_note.audio_stream = preload("res://examples/basic/sounds/plucky/3 - B.wav")
-    c_note.audio_stream = preload("res://examples/basic/sounds/plucky/4 - C.wav")
-    d_note.audio_stream = preload("res://examples/basic/sounds/plucky/5 - D.wav")
-    e_note.audio_stream = preload("res://examples/basic/sounds/plucky/6 - E.wav")
-    fs_note.audio_stream = preload("res://examples/basic/sounds/plucky/7 - F#.wav")
-    g2_note.audio_stream = preload("res://examples/basic/sounds/plucky/8 - G2.wav")
+    g_note.audio_stream = preload("res://examples/basic/sounds/boomy/1 - G .wav")
+    a_note.audio_stream = preload("res://examples/basic/sounds/boomy/2 - A.wav")
+    b_note.audio_stream = preload("res://examples/basic/sounds/boomy/3 - B.wav")
+    c_note.audio_stream = preload("res://examples/basic/sounds/boomy/4 - C.wav")
+    d_note.audio_stream = preload("res://examples/basic/sounds/boomy/5 - D.wav")
+    e_note.audio_stream = preload("res://examples/basic/sounds/boomy/6 - E.wav")
+    fs_note.audio_stream = preload("res://examples/basic/sounds/boomy/7 - F#.wav")
+    g2_note.audio_stream = preload("res://examples/basic/sounds/boomy/8 - G2.wav")
     
     for tree_sprite in $Sprites.get_children():
         tree_sprite.visible = false

@@ -1,7 +1,7 @@
 [gd_scene load_steps=2 format=3 uid="uid://b4rhl7hd6lf64"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_711bd"]
-radius = 0.382665
+radius = 0.209981
 height = 1.87226
 
 [node name="Player" type="CharacterBody3D"]
