@@ -1,11 +1,14 @@
-[gd_scene load_steps=5 format=3 uid="uid://dr30i1nhtbd0q"]
+[gd_scene load_steps=7 format=3 uid="uid://dr30i1nhtbd0q"]
 
 [ext_resource type="PackedScene" uid="uid://bgctix8m8oqro" path="res://examples/basic/map/map.blend" id="1_6jvof"]
+[ext_resource type="Script" path="res://examples/basic/map/map.gd" id="2_ansjh"]
 [ext_resource type="Material" uid="uid://chw2c8o058uyl" path="res://examples/basic/materials/hills.tres" id="2_lmwr5"]
 [ext_resource type="Material" uid="uid://cxs27dqnh65r" path="res://examples/basic/materials/grass.tres" id="3_c1eip"]
 [ext_resource type="Material" uid="uid://vf0pupygdl81" path="res://examples/basic/materials/clear.tres" id="4_4qarx"]
+[ext_resource type="Script" path="res://src/AmbitrackVoice.gd" id="5_51rul"]
 
 [node name="map" instance=ExtResource("1_6jvof")]
+script = ExtResource("2_ansjh")
 
 [node name="Hills" parent="." index="0"]
 transform = Transform3D(8.31569, 0, 0, 0, -8.31569, 2.7096e-06, 0, -2.7096e-06, -8.31569, 0, 1.17242, 0)
@@ -16,3 +19,8 @@ material_override = ExtResource("3_c1eip")
 
 [node name="boundary" parent="." index="2"]
 material_override = ExtResource("4_4qarx")
+
+[node name="AmbitrackAudioPlayer" type="AudioStreamPlayer3D" parent="." index="3"]
+
+[node name="AmbitrackVoice" type="Node" parent="." index="4"]
+script = ExtResource("5_51rul")

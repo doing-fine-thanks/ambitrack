@@ -1,6 +1,5 @@
 class_name AmbitrackVoice extends Node
 
-@export var voice_name: String = ""
 @export var audio_player: AudioStreamPlayer3D
 
 var sample_name: String = ""
@@ -19,7 +18,7 @@ func _ready():
     get_tree().root.ready.connect(_register_after_initialization_of_scene)
     #call_deferred("_register_after_initialization_of_scene")
     
-func _physics_process(delta):
+func _physics_process(_delta):
     pass
     # TODO: FFS: https://github.com/godotengine/godot/issues/64775
     #
@@ -40,6 +39,7 @@ func set_beat_function(beat_heuristic_function: Callable):
 
 func set_audio_player(audio_player_to_use: AudioStreamPlayer3D):
     audio_player = audio_player_to_use
+    voice_meta.audio = audio_player_to_use
 
 func setup(beat_heuristic_function: Callable, audio_player_to_use: AudioStreamPlayer3D):
     set_audio_player(audio_player_to_use)
@@ -55,8 +55,8 @@ func change_sample(new_voice_parts_manifest: AmbitrackCommon.VoicePartManifest, 
     voice_meta.current_note = note
     voice_meta.current_played_duration = 0
     
-    #print("last note changed to: " +  voice_meta.last_note)
-    #print("current note changed to: " +  voice_meta.current_note)
+    print("last note changed to: " +  voice_meta.last_note)
+    print("current note changed to: " +  voice_meta.current_note)
 
     _current_voice_parts_manifest = new_voice_parts_manifest
 
@@ -66,21 +66,22 @@ func change_sample(new_voice_parts_manifest: AmbitrackCommon.VoicePartManifest, 
         # todo: blend the fade_out of the old track with the new
         
         var request := AmbitrackCommon.PlayRequest.new()
-        request.priority = 1
+        request.priority = voice_meta.priority
         request.audio_player = audio_player
         _manager.add_play_to_queue(request)
 
-        voice_meta.current_sample_name = audio_player.stream.resource_name
+        voice_meta.current_sample_name = str(audio_player.get_parent().get_instance_id())
     else:
         voice_meta.current_sample_name = "null"
 
 
 
-func process_beat(beat: int, voice_metadata_map: Array) -> AmbitrackCommon.VoiceMetadata:
+func process_beat(beat: int, voice_metadata_map: Array):
     if not _has_been_setup:
         push_error("Ambitrack voice has not been setup yet @ path: " + str(get_path()))
 
     _assigned_beat_func.call(beat, voice_metadata_map)
+    
     voice_meta.current_played_duration += 1
 
     return voice_meta

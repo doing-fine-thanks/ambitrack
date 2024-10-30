@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://b5mrqvx6cjb4m"]
+[gd_scene load_steps=10 format=3 uid="uid://b5mrqvx6cjb4m"]
 
 [ext_resource type="PackedScene" uid="uid://df066dxy6tykm" path="res://src/AmbitrackManager.tscn" id="1_383i8"]
 [ext_resource type="PackedScene" uid="uid://b4rhl7hd6lf64" path="res://examples/basic/ExamplePlayer.tscn" id="1_lsm5n"]
 [ext_resource type="PackedScene" uid="uid://ds5afemiaowri" path="res://examples/basic/ExampleTree.tscn" id="2_6iseu"]
 [ext_resource type="Script" path="res://examples/basic/ExamplePlayer.gd" id="2_l2s16"]
 [ext_resource type="PackedScene" uid="uid://dr30i1nhtbd0q" path="res://examples/basic/map/map.tscn" id="3_ruih8"]
+[ext_resource type="PackedScene" uid="uid://cite4rajh1233" path="res://examples/basic/ExampleRock.tscn" id="6_ulo6l"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_mdck8"]
 sky_top_color = Color(0.486275, 0.792157, 0.882353, 1)
@@ -26,6 +27,8 @@ transform = Transform3D(0.0891744, 0, 0, 0, 0.0891744, 0, 0, 0, 0.0891744, 0, 0.
 script = ExtResource("2_l2s16")
 
 [node name="AmbitrackManager" parent="." instance=ExtResource("1_383i8")]
+max_number_of_voices = 4
+DEBUG = true
 
 [node name="map" parent="." instance=ExtResource("3_ruih8")]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 1.068, 0, -1.927)
@@ -410,5 +413,14 @@ transform = Transform3D(0.424009, 0, 0.107519, 0, 0.437429, 0, -0.107519, 0, 0.4
 
 [node name="ExampleTree320" parent="trees" instance=ExtResource("2_6iseu")]
 transform = Transform3D(0.424009, 0, 0.107519, 0, 0.437429, 0, -0.107519, 0, 0.424009, 4.68701, 0.30913, -0.68303)
+
+[node name="ExampleRock" parent="." instance=ExtResource("6_ulo6l")]
+transform = Transform3D(0.0995478, 0, 0, 0, 0.0995478, 0, 0, 0, 0.0995478, 0.754615, 0.107844, -0.095709)
+
+[node name="ExampleRock2" parent="." instance=ExtResource("6_ulo6l")]
+transform = Transform3D(0.0995478, 0, 0, 0, 0.0995478, 0, 0, 0, 0.0995478, -0.0413364, 0.107844, -3.09911)
+
+[node name="ExampleRock3" parent="." instance=ExtResource("6_ulo6l")]
+transform = Transform3D(0.147021, 0, 0, 0, 0.137194, 0, 0, 0, 0.0995478, -0.410527, 0.107844, -2.66103)
 
 [editable path="Player"]

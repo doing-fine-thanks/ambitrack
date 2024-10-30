@@ -5,7 +5,10 @@ static var GROUP_NAME: String = "Ambitrack"
 static var MANAGER_GROUP_NAME: String = "AmbitrackManager"
 
 class VoiceMetadata:
-    var priority: int = 0
+    var voice_name: String
+    var voice_parent_id: String
+    var priority: int = 1
+    var audio: AudioStreamPlayer3D
 
     var current_note: String
     var current_played_duration: int

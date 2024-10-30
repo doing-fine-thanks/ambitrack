@@ -42,16 +42,18 @@ func set_bpm_tick(bpm_desired: int):
 # Consider moving this under _physics_process so that the beat is increased at the correct rate...
 func _physics_process(delta):
     if _duration_since_last_tick > _interal_tick_duration:
+        voice_map = voice_map.filter(func (x:AmbitrackCommon.VoiceMetadata): return x.audio.playing)
+        
         var new_voice_map: Array[AmbitrackCommon.VoiceMetadata] = []
         for voice in voices:
-            new_voice_map.append(voice.process_beat(_beat, voice_map))
-        
+            var voice_meta = voice.process_beat(_beat, voice_map)
+            if voice_meta != null:
+                new_voice_map.append(voice_meta)
         
         _duration_since_last_tick = 0
         _beat += 1
             
         voice_map = new_voice_map
-        
         process_voice_play_queue()
             
     else:
@@ -66,6 +68,7 @@ func add_play_to_queue(request: AmbitrackCommon.PlayRequest):
 func process_voice_play_queue():
     voice_play_requests.sort_custom(func(a: AmbitrackCommon.PlayRequest, b: AmbitrackCommon.PlayRequest): return a.priority > b.priority)
     for i in range(min(max_number_of_voices, voice_play_requests.size())):
+        print("playing voice " + str(i))
         voice_play_requests[i].audio_player.play()
     
     voice_play_requests.clear()
