@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://b5mrqvx6cjb4m"]
+[gd_scene load_steps=20 format=3 uid="uid://b5mrqvx6cjb4m"]
 
 [ext_resource type="PackedScene" uid="uid://df066dxy6tykm" path="res://src/AmbitrackManager.tscn" id="1_383i8"]
 [ext_resource type="PackedScene" uid="uid://b4rhl7hd6lf64" path="res://examples/basic/ExamplePlayer.tscn" id="1_lsm5n"]
@@ -6,6 +6,16 @@
 [ext_resource type="Script" path="res://examples/basic/ExamplePlayer.gd" id="2_l2s16"]
 [ext_resource type="PackedScene" uid="uid://dr30i1nhtbd0q" path="res://examples/basic/map/map.tscn" id="3_ruih8"]
 [ext_resource type="PackedScene" uid="uid://cite4rajh1233" path="res://examples/basic/ExampleRock.tscn" id="6_ulo6l"]
+[ext_resource type="PackedScene" uid="uid://bj1wg868c7h2c" path="res://examples/basic/InfoBoard.tscn" id="7_ypxri"]
+[ext_resource type="Texture2D" uid="uid://lcmfr2q666rv" path="res://examples/basic/assets/feature-for-sound-designers.jpg" id="8_1rhrd"]
+[ext_resource type="Texture2D" uid="uid://d1ou5x56fka0w" path="res://examples/basic/assets/wwise.png" id="9_w2ba4"]
+[ext_resource type="Texture2D" uid="uid://bh0psmtuitc4i" path="res://examples/basic/assets/Protracker_3.62_screenshot.png" id="10_vovbh"]
+[ext_resource type="Texture2D" uid="uid://c07snopn0ecbg" path="res://examples/basic/assets/maxresdefault.jpg" id="11_jsrt6"]
+[ext_resource type="Texture2D" uid="uid://dvuf1q60pjvb0" path="res://examples/basic/assets/schafer.png" id="12_o6ctq"]
+[ext_resource type="Texture2D" uid="uid://bpf8rt67pa0dy" path="res://examples/basic/assets/grayareas.png" id="13_vn0vn"]
+[ext_resource type="Texture2D" uid="uid://djs2x6bepv105" path="res://examples/basic/assets/ohara.png" id="14_1twh8"]
+[ext_resource type="Texture2D" uid="uid://clf72ah7pj3iw" path="res://examples/basic/assets/treatises.png" id="15_5awex"]
+[ext_resource type="Texture2D" uid="uid://bnowouj0v24sh" path="res://examples/basic/assets/cornelius-cardew--treatise.jpg" id="16_wjcpa"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_mdck8"]
 sky_top_color = Color(0.486275, 0.792157, 0.882353, 1)
@@ -423,4 +433,87 @@ transform = Transform3D(0.0995478, 0, 0, 0, 0.0995478, 0, 0, 0, 0.0995478, -0.04
 [node name="ExampleRock3" parent="." instance=ExtResource("6_ulo6l")]
 transform = Transform3D(0.147021, 0, 0, 0, 0.137194, 0, 0, 0, 0.0995478, -0.410527, 0.107844, -2.66103)
 
+[node name="Infoboards" type="Node3D" parent="."]
+
+[node name="InfoBoard" parent="Infoboards" instance=ExtResource("7_ypxri")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.047, 0.115745, -0.203051)
+
+[node name="Sprite3D" parent="Infoboards/InfoBoard" index="0"]
+transform = Transform3D(0.012914, 0, 0, 0, 0.012914, 0, 0, 0, 0.012914, 0, 0.0961407, 0)
+billboard = 2
+texture = ExtResource("8_1rhrd")
+
+[node name="InfoBoard2" parent="Infoboards" instance=ExtResource("7_ypxri")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.1492, 0.172557, -0.363262)
+
+[node name="Sprite3D" parent="Infoboards/InfoBoard2" index="0"]
+transform = Transform3D(0.00566936, 0, 0, 0, 0.00566936, 0, 0, 0, 0.00566936, 0, 0.0961407, 0)
+billboard = 2
+texture = ExtResource("9_w2ba4")
+
+[node name="InfoBoard3" parent="Infoboards" instance=ExtResource("7_ypxri")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.303353, 0.0872898, -0.5694)
+
+[node name="Sprite3D" parent="Infoboards/InfoBoard3" index="0"]
+transform = Transform3D(0.0412194, 0, 0, 0, 0.0412194, 0, 0, 0, 0.0412194, 0, 0.190976, 0)
+billboard = 2
+texture = ExtResource("10_vovbh")
+
+[node name="InfoBoard4" parent="Infoboards" instance=ExtResource("7_ypxri")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.09805, 0.0872898, -2.29061)
+
+[node name="Sprite3D" parent="Infoboards/InfoBoard4" index="0"]
+transform = Transform3D(0.0412194, 0, 0, 0, 0.0412194, 0, 0, 0, 0.0412194, 0.000390291, 0.189155, -8.08239e-05)
+billboard = 2
+texture = ExtResource("11_jsrt6")
+
+[node name="InfoBoard6" parent="Infoboards" instance=ExtResource("7_ypxri")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.93843, 0.0872898, -3.40243)
+
+[node name="Sprite3D" parent="Infoboards/InfoBoard6" index="0"]
+transform = Transform3D(0.0412194, 0, 0, 0, 0.0412194, 0, 0, 0, 0.0412194, 0.000390291, 0.189155, -8.08239e-05)
+billboard = 2
+texture = ExtResource("12_o6ctq")
+
+[node name="InfoBoard7" parent="Infoboards" instance=ExtResource("7_ypxri")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.41919, 0.0872898, -3.27224)
+
+[node name="Sprite3D" parent="Infoboards/InfoBoard7" index="0"]
+transform = Transform3D(0.0412194, 0, 0, 0, 0.0412194, 0, 0, 0, 0.0412194, -0.562546, 0.359555, -0.408854)
+billboard = 2
+texture = ExtResource("13_vn0vn")
+
+[node name="InfoBoard5" parent="Infoboards" instance=ExtResource("7_ypxri")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.05544, 0.37706, -2.79248)
+
+[node name="Sprite3D" parent="Infoboards/InfoBoard5" index="0"]
+transform = Transform3D(0.0412194, 0, 0, 0, 0.0412194, 0, 0, 0, 0.0412194, 0.00205302, 0.189155, -0.00106716)
+billboard = 2
+texture = ExtResource("14_1twh8")
+
+[node name="InfoBoard8" parent="Infoboards" instance=ExtResource("7_ypxri")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.7432, -0.00933093, -1.33528)
+
+[node name="Sprite3D" parent="Infoboards/InfoBoard8" index="0"]
+transform = Transform3D(0.0120309, 0, 0, 0, 0.0120309, 0, 0, 0, 0.0120309, 0.00205302, 0.189155, -0.00106716)
+billboard = 2
+texture = ExtResource("15_5awex")
+
+[node name="InfoBoard9" parent="Infoboards" instance=ExtResource("7_ypxri")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.7432, 0.0687959, -1.22332)
+
+[node name="Sprite3D" parent="Infoboards/InfoBoard9" index="0"]
+transform = Transform3D(0.0120309, 0, 0, 0, 0.0120309, 0, 0, 0, 0.0120309, 0.00205302, 0.189155, -0.00106716)
+billboard = 2
+texture = ExtResource("16_wjcpa")
+
 [editable path="Player"]
+[editable path="Infoboards/InfoBoard"]
+[editable path="Infoboards/InfoBoard2"]
+[editable path="Infoboards/InfoBoard3"]
+[editable path="Infoboards/InfoBoard4"]
+[editable path="Infoboards/InfoBoard6"]
+[editable path="Infoboards/InfoBoard7"]
+[editable path="Infoboards/InfoBoard5"]
+[editable path="Infoboards/InfoBoard8"]
+[editable path="Infoboards/InfoBoard9"]
